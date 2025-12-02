@@ -22,24 +22,22 @@
 
     <script>
         function handleLogin() {
-
-            const EMAIL_CORRETO = "lucas@gmail.com"; 
-            const SENHA_CORRETA = "1234"; 
-
-            const emailDigitado = document.getElementById('email').value;
-            const senhaDigitada = document.getElementById('senha').value;
-
-            if (emailDigitado === EMAIL_CORRETO && senhaDigitada === SENHA_CORRETA) {
-
+            const emailDigitado = document.getElementById('email').value.trim();
+            const senhaDigitada = document.getElementById('senha').value.trim();
+            
+            if (emailDigitado !== "" && senhaDigitada !== "") {
+                
                 localStorage.setItem('usuarioLogado', 'true');
+                localStorage.setItem('emailUsuario', emailDigitado);
+                
+                alert("Login realizado com sucesso! Bem-vindo(a) " + emailDigitado + ".");
+
                 window.location.href = "home.html"; 
             } else {
-                
-                alert("Email ou senha incorretos! Tente novamente.");
+                alert("Por favor, preencha todos os campos!");
             }
         }
     </script>
 
 </body>
-
 </html>
